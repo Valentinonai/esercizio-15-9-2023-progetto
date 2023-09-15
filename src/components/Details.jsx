@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Header from "./Header";
+import CurrentWeather from "./CurrentWeather";
+import Forecasts from "./Forecasts";
+import { Container } from "react-bootstrap";
 
 const Details = (props) => {
   const params = useParams();
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
-  const [currenWeahter, setCurrentWeather] = useState(null);
-  const [nextDaysWeahter, setNextDaysWeather] = useState(null);
+  const [currenWeather, setCurrentWeather] = useState(null);
+  const [nextDaysWeather, setNextDaysWeather] = useState(null);
 
   const fetchCurrentWeather = async () => {
     try {
@@ -61,6 +65,16 @@ const Details = (props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lat, long]);
-  return;
+  return (
+    <div id="Details">
+      {currenWeather && (
+        <Container>
+          <Header currentWeather={currenWeather} />
+          <CurrentWeather currentWeather={currenWeather} />
+          <Forecasts nextDaysWeather={nextDaysWeather} />
+        </Container>
+      )}
+    </div>
+  );
 };
 export default Details;
