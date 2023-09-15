@@ -11,6 +11,7 @@ const Details = (props) => {
   const [long, setLong] = useState("");
   const [currenWeather, setCurrentWeather] = useState(null);
   const [nextDaysWeather, setNextDaysWeather] = useState(null);
+  const [today, setToday] = useState("");
 
   const fetchCurrentWeather = async () => {
     try {
@@ -69,9 +70,9 @@ const Details = (props) => {
     <div id="Details">
       {currenWeather && (
         <Container>
-          <Header currentWeather={currenWeather} />
+          <Header currentWeather={currenWeather} setToday={setToday} />
           <CurrentWeather currentWeather={currenWeather} />
-          <Forecasts nextDaysWeather={nextDaysWeather} />
+          <Forecasts nextDaysWeather={nextDaysWeather} today={today} />
         </Container>
       )}
     </div>

@@ -20,14 +20,21 @@ const Home = (props) => {
           }}
         >
           <input
-            className="w-75"
+            className="w-75 rounded shadow"
             placeholder="Search City"
             type="text"
+            style={{
+              border: "1px solid blue",
+              backgroundColor: "transparent",
+              color: "blue",
+              outline: "none",
+              height: "40px",
+            }}
             onChange={(e) => {
               setCity(e.target.value);
             }}
           />
-          <button className="btn btn-primary mt-3 w-75">click</button>
+          <button className="btn btn-primary mt-3 w-75">Search</button>
         </form>
       </Container>
     </div>

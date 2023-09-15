@@ -13,7 +13,7 @@ const Header = (props) => {
     const min = a.getMinutes();
     const sec = a.getSeconds();
     const time = date + " " + month + " " + year + " " + hour + ":" + min + ":" + sec;
-
+    props.setToday(date);
     setData(time);
   };
 
