@@ -11,6 +11,9 @@ const CurrentWeather = (props) => {
         />
         <p className="text-center ">{`${(props.currentWeather.main.temp - 273.15).toFixed(1)}°`}</p>
       </div>
+      <span className="mb-4 fs-1" style={{ textAlign: "center", display: "block" }}>
+        {props.currentWeather.weather[0].description}
+      </span>
       <Row className="justify-content-center g-2 ">
         <Col
           xs={4}
