@@ -50,3 +50,18 @@ body {
     width: 200px;
   }
 }
+
+.hourWeather {
+  border: 1px solid rgb(106, 95, 119, 0.683);
+  margin-inline: 10px;
+  box-shadow: 0 0 2px 2px rgba(106, 95, 119, 0.683);
+  margin-block: 20px;
+  border-radius: 10px;
+}
+.forecastCard {
+  transition: transform 0.5s linear;
+}
+.forecastCard:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

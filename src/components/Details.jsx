@@ -72,8 +72,13 @@ const Details = (props) => {
       {currenWeather && (
         <Container>
           <Header currentWeather={currenWeather} setToday={setToday} setTimeZone={setTimeZone} />
-          <CurrentWeather currentWeather={currenWeather} />
-          <Forecasts nextDaysWeather={nextDaysWeather} today={today} />
+          <CurrentWeather currentWeather={currenWeather} nextDaysWeather={nextDaysWeather} today={today} />
+          <Forecasts
+            nextDaysWeather={nextDaysWeather}
+            today={today}
+            timezone={timeZone}
+            currentWeather={currenWeather}
+          />
         </Container>
       )}
     </div>

@@ -1,4 +1,5 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import DayForecast from "./DayForecast";
 
 const CurrentWeather = (props) => {
   return (
@@ -55,6 +56,7 @@ const CurrentWeather = (props) => {
           </div>
         </Col>
       </Row>
+      <DayForecast nextDaysWeather={props.nextDaysWeather} today={props.today} currentWeather={props.currentWeather} />
       <hr style={{ color: "#2b2828" }} />
     </>
   );
