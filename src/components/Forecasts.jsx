@@ -25,7 +25,8 @@ const Forecasts = (props) => {
           {forecast.map(
             (elem, index) =>
               props.today !== timeConverter(elem.dt)[0] &&
-              timeConverter(elem.dt)[1] === 11 && (
+              timeConverter(elem.dt)[1] <= 13 &&
+              timeConverter(elem.dt)[1] >= 11 && (
                 <Col key={`${index}`} xs={6} sm={4} md={3} lg={2}>
                   <Card
                     className="shadow"
@@ -35,7 +36,7 @@ const Forecasts = (props) => {
                       opacity: "0.8",
                     }}
                   >
-                    <Card.Text className="pt-2">{timeConverter(elem.dt)[2]}</Card.Text>
+                    <Card.Text className="pt-2">{timeConverter(elem.dt, elem.timezone)[2]}</Card.Text>
                     <Card.Img variant="top" src={`https://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`} />
                     <Card.Body>
                       <Card.Text>{`Max: ${(elem.main.temp_max - 273.15).toFixed(1)}°`}</Card.Text>
