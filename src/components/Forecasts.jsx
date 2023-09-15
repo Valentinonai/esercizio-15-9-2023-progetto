@@ -38,7 +38,6 @@ const Forecasts = (props) => {
                     <Card.Body>
                       <Card.Text>{` ${elem.weather[0].main}`}</Card.Text>
                       <Card.Text>{`Temp: ${(elem.main.temp - 273.15).toFixed(1)}°`}</Card.Text>
-                      {console.log(elem)}
                     </Card.Body>
                   </Card>
                 </Col>
