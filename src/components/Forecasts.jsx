@@ -4,7 +4,7 @@ import { Card, Col, Row } from "react-bootstrap";
 const Forecasts = (props) => {
   const [forecast, setForecast] = useState(null);
   const timeConverter = (data) => {
-    let a = new Date((data + props.nextDaysWeather.city.timezone - 7200) * 1000);
+    let a = new Date((data + props.nextDaysWeather.city.timezone - 3600) * 1000);
     const date = a.getDate();
     const hour = a.getHours();
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -18,16 +18,15 @@ const Forecasts = (props) => {
   }, [props.nextDaysWeather]);
   return (
     <>
-      {console.log(props.nextDaysWeather)}
+      {console.log(forecast)}
       <h4>5-days Forecast</h4>
       {forecast && (
         <Row className="justify-content-center mt-5 gy-4">
           {forecast.map(
             (elem, index) =>
-              props.today !== timeConverter(elem.dt)[0] &&
-              timeConverter(elem.dt)[1] <= 13 &&
-              timeConverter(elem.dt)[1] >= 11 && (
+              timeConverter(elem.dt)[1] === 12 && (
                 <Col key={`${index}`} xs={6} sm={4} md={3} lg={2}>
+                  {console.log(timeConverter(elem.dt)[1])}
                   <Card
                     className="shadow"
                     style={{
