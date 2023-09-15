@@ -4,7 +4,7 @@ import { Card, Col, Row } from "react-bootstrap";
 const Forecasts = (props) => {
   const [forecast, setForecast] = useState(null);
   const timeConverter = (data) => {
-    const a = new Date(data * 1000);
+    let a = new Date((data + props.nextDaysWeather.city.timezone - 7200) * 1000);
     const date = a.getDate();
     const hour = a.getHours();
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -18,7 +18,7 @@ const Forecasts = (props) => {
   }, [props.nextDaysWeather]);
   return (
     <>
-      {console.log(forecast)}
+      {console.log(props.nextDaysWeather)}
       <h4>5-days Forecast</h4>
       {forecast && (
         <Row className="justify-content-center mt-5 gy-4">

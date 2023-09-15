@@ -12,6 +12,7 @@ const Details = (props) => {
   const [currenWeather, setCurrentWeather] = useState(null);
   const [nextDaysWeather, setNextDaysWeather] = useState(null);
   const [today, setToday] = useState("");
+  const [timeZone, setTimeZone] = useState("");
 
   const fetchCurrentWeather = async () => {
     try {
@@ -70,7 +71,7 @@ const Details = (props) => {
     <div id="Details">
       {currenWeather && (
         <Container>
-          <Header currentWeather={currenWeather} setToday={setToday} />
+          <Header currentWeather={currenWeather} setToday={setToday} setTimeZone={setTimeZone} />
           <CurrentWeather currentWeather={currenWeather} />
           <Forecasts nextDaysWeather={nextDaysWeather} today={today} />
         </Container>
