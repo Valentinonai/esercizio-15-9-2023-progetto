@@ -36,8 +36,9 @@ const Forecasts = (props) => {
                     <Card.Text className="pt-2">{timeConverter(elem.dt_txt, elem.timezone)[2]}</Card.Text>
                     <Card.Img variant="top" src={`https://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`} />
                     <Card.Body>
-                      <Card.Text>{`Max: ${(elem.main.temp_max - 273.15).toFixed(1)}°`}</Card.Text>
-                      <Card.Text>{`Min: ${(elem.main.temp_min - 273.15).toFixed(1)}°`}</Card.Text>
+                      <Card.Text>{` ${elem.weather[0].main}`}</Card.Text>
+                      <Card.Text>{`Temp: ${(elem.main.temp - 273.15).toFixed(1)}°`}</Card.Text>
+                      {console.log(elem)}
                     </Card.Body>
                   </Card>
                 </Col>
