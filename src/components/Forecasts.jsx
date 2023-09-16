@@ -24,7 +24,7 @@ const Forecasts = (props) => {
         <Row className="justify-content-center mt-5 gy-4">
           {forecast.map(
             (elem, index) =>
-              timeConverter(elem.dt)[1] === timeConverter(props.currentWeather.dt)[1] + 2 && (
+              timeConverter(elem.dt)[1] === timeConverter(forecast[0].dt)[1] && (
                 <Col key={`${index}`} xs={6} sm={4} md={3} lg={2}>
                   <Card
                     className="shadow forecastCard"
