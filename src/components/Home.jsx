@@ -20,15 +20,15 @@ const Home = (props) => {
           }}
         >
           <input
-            className="w-75 rounded shadow"
+            className="w-75 rounded shadow ps-3"
             placeholder="Search City"
             type="text"
             style={{
-              border: "1px solid blue",
-              backgroundColor: "transparent",
-              color: "blue",
+              backgroundColor: "#4ca0f480",
+              border: "none",
               outline: "none",
               height: "40px",
+              color: "#3f3e3e",
             }}
             onChange={(e) => {
               setCity(e.target.value);

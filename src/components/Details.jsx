@@ -3,13 +3,15 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 import CurrentWeather from "./CurrentWeather";
 import Forecasts from "./Forecasts";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import DayForecast from "./DayForecast";
+import AirConditions from "./AirConditions";
 
 const Details = (props) => {
   const params = useParams();
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
-  const [currenWeather, setCurrentWeather] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(null);
   const [nextDaysWeather, setNextDaysWeather] = useState(null);
   const [today, setToday] = useState("");
   const [timeZone, setTimeZone] = useState("");
@@ -69,16 +71,38 @@ const Details = (props) => {
   }, [lat, long]);
   return (
     <div id="Details">
-      {currenWeather && (
-        <Container>
-          <Header currentWeather={currenWeather} setToday={setToday} setTimeZone={setTimeZone} />
-          <CurrentWeather currentWeather={currenWeather} nextDaysWeather={nextDaysWeather} today={today} />
-          <Forecasts
-            nextDaysWeather={nextDaysWeather}
-            today={today}
-            timezone={timeZone}
-            currentWeather={currenWeather}
-          />
+      {currentWeather && (
+        <Container fluid="xxl">
+          <Row>
+            <Col xs={12} lg={7}>
+              <Row>
+                <Col xs={12}>
+                  <Row className="mb-5">
+                    <Col xs={5} xl={4}>
+                      <Header currentWeather={currentWeather} setToday={setToday} setTimeZone={setTimeZone} />
+                    </Col>
+                    <Col xs={7} xl={8}>
+                      <CurrentWeather currentWeather={currentWeather} nextDaysWeather={nextDaysWeather} today={today} />
+                    </Col>
+                  </Row>
+                </Col>
+                <Col xs={12}>
+                  <DayForecast nextDaysWeather={nextDaysWeather} today={today} currentWeather={currentWeather} />
+                </Col>
+                <Col xs={12}>
+                  <AirConditions currentWeather={currentWeather} />
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={12} lg={5}>
+              <Forecasts
+                nextDaysWeather={nextDaysWeather}
+                today={today}
+                timezone={timeZone}
+                currentWeather={currentWeather}
+              />
+            </Col>
+          </Row>
         </Container>
       )}
     </div>

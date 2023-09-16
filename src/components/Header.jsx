@@ -24,7 +24,7 @@ const Header = (props) => {
   }, [props.currentWeather]);
   return (
     <>
-      <h1 className="pt-5 text-center">
+      <h1 className="pt-5 ">
         <i
           className="bi bi-geo-alt-fill"
           style={{
@@ -33,7 +33,9 @@ const Header = (props) => {
         ></i>
         {props.currentWeather.name}
       </h1>
-      <p className="text-center">{data}</p>
+      <p className="">{data}</p>
+      <h3>H:{`${(props.currentWeather.main.temp_max - 273.15).toFixed(1)}°`}</h3>
+      <h3>L:{`${(props.currentWeather.main.temp_min - 273.15).toFixed(1)}°`}</h3>
     </>
   );
 };

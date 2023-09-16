@@ -11,42 +11,50 @@ const Forecasts = (props) => {
     const year = a.getFullYear();
     const month = months[a.getMonth()];
     if (hour + 2 === 24) hour = 0;
-    return [date, hour, `${date}-${month}-${year}`];
+    return [date, hour, `${date}-${month}`];
   };
   useEffect(() => {
     if (props.nextDaysWeather) setForecast(props.nextDaysWeather.list);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.nextDaysWeather]);
   return (
-    <>
-      <h4>5-days Forecast</h4>
+    <div className="shadow p-4 forecast">
+      <h4 className="pt-4" style={{ fontWeight: "300" }}>
+        5-days Forecast
+      </h4>
       {forecast && (
-        <Row className="justify-content-center mt-5 gy-4">
+        <div className=" mt-5 gy-4" style={{ overflowX: "scroll" }}>
           {forecast.map(
             (elem, index) =>
               timeConverter(elem.dt)[1] === timeConverter(forecast[0].dt)[1] && (
-                <Col key={`${index}`} xs={6} sm={4} md={3} lg={2}>
-                  <Card
-                    className="shadow forecastCard"
-                    style={{
-                      backgroundColor: "#7a7cce",
-                      textAlign: "center",
-                      opacity: "0.8",
-                    }}
-                  >
-                    <Card.Text className="pt-2">{timeConverter(elem.dt)[2]}</Card.Text>
-                    <Card.Img variant="top" src={`https://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`} />
-                    <Card.Body>
-                      <Card.Text>{` ${elem.weather[0].main}`}</Card.Text>
-                      <Card.Text>{`Temp: ${(elem.main.temp - 273.15).toFixed(1)}°`}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+                <Row className="align-items-center singForecast">
+                  <Col xs={3}>
+                    <span className="pt-2">{timeConverter(elem.dt)[2]}</span>
+                  </Col>
+                  <Col xs={3}>
+                    {" "}
+                    <div>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`}
+                        alt="logo"
+                        width="100%"
+                      />
+                    </div>
+                  </Col>
+                  <Col xs={3}>
+                    {" "}
+                    <span>{` ${elem.weather[0].main}`}</span>
+                  </Col>
+                  <Col xs={3}>
+                    {" "}
+                    <span>{`Temp: ${(elem.main.temp - 273.15).toFixed(1)}°`}</span>
+                  </Col>
+                </Row>
               )
           )}
-        </Row>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 export default Forecasts;

@@ -11,16 +11,13 @@ const DayForecast = (props) => {
   };
 
   return (
-    <>
+    <div className=" shadow p-4 dayForecast">
       {props.nextDaysWeather && (
         <>
           <h5 className="mt-4" style={{ fontWeight: "300" }}>
             HOURLY FORECAST
           </h5>
-          <div
-            className="d-flex justify-content-start justify-content-xl-center align-items-start"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="d-flex justify-content-start  align-items-start" style={{ overflowX: "scroll" }}>
             {props.nextDaysWeather.list.map(
               (elem, index) =>
                 timeConverter(elem.dt, props.currentWeather.timezone)[0] === props.today && (
@@ -37,7 +34,7 @@ const DayForecast = (props) => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 export default DayForecast;

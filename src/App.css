@@ -22,27 +22,45 @@ body {
 }
 #main p {
   color: rgba(131, 70, 188, 0.713);
-  font-size: 300px;
+  font-size: 200px;
   font-weight: "bold";
   position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 #icona {
   position: relative;
-  width: 500px;
+  width: 400px;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.4;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1199px) {
   #main p {
-    font-size: 200px;
+    font-size: 140px;
+  }
+  #icona {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 716px) {
+  #main p {
+    font-size: 130px;
   }
   #icona {
     width: 300px;
   }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 550px) {
+  #main p {
+    font-size: 120px;
+  }
+  #icona {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 420px) {
   #main p {
     font-size: 100px;
   }
@@ -50,13 +68,21 @@ body {
     width: 200px;
   }
 }
-
+@media screen and (max-width: 360px) {
+  #main p {
+    font-size: 80px;
+  }
+  #icona {
+    width: 150px;
+  }
+}
 .hourWeather {
-  border: 1px solid rgb(106, 95, 119, 0.683);
-  margin-inline: 10px;
-  box-shadow: 0 0 2px 2px rgba(106, 95, 119, 0.683);
+  border-right: 1px solid rgb(106, 95, 119, 0.683);
   margin-block: 20px;
-  border-radius: 10px;
+  padding: 20px;
+}
+.hourWeather:last-of-type {
+  border: none;
 }
 .forecastCard {
   transition: transform 0.5s linear;
@@ -64,4 +90,35 @@ body {
 .forecastCard:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.dayForecast {
+  border-radius: 20px;
+  background-color: #77b6f680;
+  border: #77b6f680;
+}
+
+.airCondition {
+  border-radius: 20px;
+  background-color: #77b6f680;
+  border: #77b6f680;
+}
+
+.forecast {
+  border-radius: 20px;
+  background-color: #77b6f680;
+  border: #77b6f680;
+  margin-top: 150px;
+}
+@media screen and (max-width: 991px) {
+  .forecast {
+    margin-top: 50px;
+  }
+}
+
+.singForecast {
+  border-bottom: 1px solid gray;
+}
+.singForecast:last-of-type {
+  border: none;
 }
