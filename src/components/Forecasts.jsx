@@ -26,8 +26,7 @@ const Forecasts = (props) => {
         <div className=" mt-5 gy-4" style={{ overflowX: "scroll" }}>
           {forecast.map(
             (elem, index) =>
-              timeConverter(elem.dt)[1] === timeConverter(forecast[1].dt)[1] &&
-              timeConverter(elem.dt)[0] > props.today && (
+              timeConverter(elem.dt)[1] === timeConverter(forecast[1].dt)[1] && (
                 <Row className="align-items-center singForecast">
                   <Col xs={3}>
                     <span className="pt-2">{timeConverter(elem.dt)[2]}</span>
